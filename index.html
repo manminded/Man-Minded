@@ -13,51 +13,91 @@
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
+            padding: 20px; /* Increased padding for more white space */
         }
         .container {
             text-align: center;
-            max-width: 400px;
-            padding: 20px;
+            max-width: 350px;
+            padding: 30px; /* Increased padding for more spacing inside */
             background-color: #fff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             border-radius: 8px;
+            margin: 20px; /* Added margin for additional white space around the container */
         }
-        .container img {
-            width: 100px;
+        .image {
             margin-bottom: 20px;
+        }
+        .image img {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 48px;
         }
         .title {
             font-size: 24px;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            color: #1d1d1d;
+            text-align: center;
         }
         .description {
             font-size: 16px;
-            color: #555;
+            color: #1d1d1d;
             margin-bottom: 20px;
+            line-height: 1.5;
+            text-align: justify;
+            padding: 0 5px;
         }
         .divider {
-            width: 100%;
+            width: match-parent;
+	    margin-left: 1px;	    
+	    margin-right: 1px;
             height: 1px;
-            background-color: #ddd;
-            margin: 20px 0;
+            background-color: rgba(29, 29, 29, 0.3); /* 70% opacity black */
+            margin-top: 25px;
+            margin-bottom: 20px;
         }
         .button {
-            display: inline-block;
-            padding: 12px 24px;
+            display: block; /* Full-width button */
+            width: 100%; /* Full width to match other elements */
+            padding: 12px 0;
             font-size: 16px;
             color: #fff;
-            background-color: #333;
+            background-color: #1d1d1d;
             border: none;
-            border-radius: 5px;
             text-decoration: none;
             margin-bottom: 10px;
             cursor: pointer;
+            text-align: center;
         }
         .footer {
-            font-size: 12px;
-            color: #777;
+            font-size: 11px;
+            color: #1d1d1d;
             margin-top: 10px;
+            text-align: left;
+            padding: 20px 5px;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 480px) {
+            .title {
+                font-size: 20px;
+            }
+            .description {
+                font-size: 14px;
+                margin-bottom: 15px;
+                line-height: 1.6;
+            }
+            .button {
+                padding: 10px 0;
+                font-size: 15px;
+            }
+            .footer {
+                font-size: 11px;
+                line-height: 1.4;
+            }
+            .container {
+                max-width: 90%;
+            }
         }
     </style>
 </head>
@@ -67,9 +107,6 @@
         <div class="image">
             <img src="COVER.jpg" alt="Logo">
         </div>
-        
-        <!-- Title Text -->
-        <div class="title">STOP LOSING HER INTEREST & YOUR CONFIDENCE</div>
         
         <!-- Description Text -->
         <div class="description">
@@ -83,7 +120,7 @@
         <a href="https://buy.stripe.com/eVa17F4Ra5Jwd8c5kk" class="button">BUY NOW FOR $4.99</a>
         
         <!-- Footer Text -->
-        <div class="footer">* after purchase a PDF file will be immediately sent to your email</div>
+        <div class="footer"><i>* after purchase a PDF file will be immediately sent to your email</i></div>
     </div>
 </body>
 </html>
