@@ -108,7 +108,70 @@ color: #1d1d1d;
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=425482186831625&ev=PageView&noscript=1"
 /></noscript>
+	
+<script>
+let viewContent1Triggered = false;
+let viewContent2Triggered = false;
+let viewContent3Triggered = false;
+window.addEventListener('scroll', () => {
+    const scrollDepth = window.scrollY + window.innerHeight;
+    const pageHeight = document.documentElement.scrollHeight;
 
+    if (!viewContent1Triggered && scrollDepth >= pageHeight * 0.5) { // 50% scroll depth
+        fbq('track', 'ViewContent', {scroll_depth: '50%'});
+        viewContent1Triggered = true;
+    }
+    if (!viewContent2Triggered && scrollDepth >= pageHeight * 0.2) { // 50% scroll depth
+        fbq('track', 'ViewContent', {scroll_depth: '20%'});
+        viewContent2Triggered = true;
+    }
+    if (!viewContent3Triggered && scrollDepth >= pageHeight * 0.8) { // 50% scroll depth
+        fbq('track', 'ViewContent', {scroll_depth: '80%'});
+        viewContent3Triggered = true;
+    }
+	
+});
+</script>
+
+<script>
+let viewContent3Triggered = false;
+let addToCartTriggered = false;
+
+// Timer to check time spent on page (in milliseconds)
+const timeSpentThreshold = 50000; // 30 seconds
+let timeSpentOnPage = 0;
+
+window.addEventListener('scroll', () => {
+    const scrollDepth = window.scrollY + window.innerHeight;
+    const pageHeight = document.documentElement.scrollHeight;
+
+    // Trigger ViewContent with 80% scroll depth
+    if (!viewContent3Triggered && scrollDepth >= pageHeight * 0.8) {
+        fbq('track', 'ViewContent', {scroll_depth: '80%'});
+        viewContent3Triggered = true;
+    }
+
+    // Trigger AddToCart when both conditions are met
+    if (viewContent3Triggered && !addToCartTriggered && timeSpentOnPage >= timeSpentThreshold) {
+        fbq('track', 'AddToCart');
+        addToCartTriggered = true;
+    }
+});
+
+// Timer to track time spent on page
+setInterval(() => {
+    timeSpentOnPage += 1000; // Increase time by 1 second (1000ms)
+
+    // Check if both conditions are met
+    if (viewContent3Triggered && !addToCartTriggered && timeSpentOnPage >= timeSpentThreshold) {
+        fbq('track', 'AddToCart');
+        addToCartTriggered = true;
+    }
+}, 1000);
+</script>
+	
+
+	
 <script async defer src="https://tools.luckyorange.com/core/lo.js?site-id=70dd00f2"></script>
 </head>
 <body>
